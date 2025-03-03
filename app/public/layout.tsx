@@ -1,3 +1,5 @@
+import Navbar from 'app/components/Navbar';
+
 // app/(public)/layout.tsx
 export default function PublicLayout({
   children
@@ -6,9 +8,7 @@ export default function PublicLayout({
 }) {
   return (
     <>
-      <nav className="bg-gray-200 p-4">
-        <div className="container mx-auto">Public Navigation</div>
-      </nav>
+      <Navbar />
       {children}
     </>
   );
