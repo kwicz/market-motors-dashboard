@@ -66,7 +66,21 @@ export async function getProducts(
     totalProducts: totalProducts[0].count
   };
 }
+export const getActiveProducts = async () => {
+  const activeProducts = await db
+    .select()
+    .from(products)
+    .where(eq(products.status, 'active'));
+  return activeProducts;
+};
 
+export const getProductById = async (productId: number) => {
+  const product = await db
+    .select()
+    .from(products)
+    .where(eq(products.id, productId));
+  return product[0];
+};
 export async function deleteProductById(id: number) {
   await db.delete(products).where(eq(products.id, id));
 }
